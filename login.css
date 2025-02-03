@@ -1,0 +1,172 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    text-decoration: none;
+    list-style: none;
+    /* 
+    outline: 1px solid rgb(255, 0, 0);
+    */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+button,
+input {
+    border: none;
+    box-shadow: none;
+}
+
+
+
+:root {
+    --primary-color: #FE481A;
+    --secondary-color: #FEA71C;
+    /* --primary-color: #393E58;
+    --secondary-color: #E3E4D1; */
+    --accent-color: #A7BEAC;
+    --neutral-color: #707A74;
+    --dark-color: #573D3B;
+    --borderRad: 30px;
+    --borderRad-sm: 15px;
+    --border: 1px solid color-mix(in srgb, var(--neutral-color) 40%, transparent 90%);
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+in srgb,
+
+a {
+    color: var(--dark-color);
+    font-weight: 600;
+    transition: all ease-in-out 150ms;
+
+    &:hover {
+        color: var(--secondary-color);
+    }
+
+    &:active {
+        scale: .95;
+    }
+}
+
+:where(.btn--primary) {
+    margin-block: 1em;
+    margin-inline: auto;
+}
+
+.btn--primary {
+    display: block;
+    cursor: pointer;
+    padding: 1em 2em;
+    margin-block: 1em;
+    border-radius: var(--borderRad-sm);
+    color: var(--secondary-color);
+    background: color-mix(var(--neutral-color) 30%, transparent 10%);
+    border: var(--border);
+    transition: box-shadow ease-in-out 150ms, scale ease-in-out 200ms;
+
+    &:hover {
+        box-shadow: 0px 0px 20px color-mix(in srgb, var(--neutral-color) 30%, transparent 10%);
+    }
+
+    &:active {
+        scale: .95;
+    }
+}
+
+
+.login {
+    height: 100svh;
+    background: url("https://cdn.discordapp.com/attachments/1196714754769694853/1336013404988510228/thomasranner_nr24-2-01132.jpg?ex=67a242f1&is=67a0f171&hm=77f5128684282f98d7ba8915ce46a2b0986af4a32cb9c799f7fa762a24a0a670&");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.login__card {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    max-width: 380px;
+    width: 96%;
+    /* max ennyi lehet */
+    /* ha kisebb mint 700 akkor töltse ki */
+    backdrop-filter: blur(10px);
+    background: color-mix(in srgb, black 80%, transparent 20%);
+    color: var(--secondary-color);
+    padding-block: 2em;
+    padding-inline: clamp(0em, 4vw, 2em);
+    border-radius: var(--borderRad);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    animation: fadeIn ease-in-out 1000ms forwards;
+
+    & .icon-store {
+        margin-bottom: 1em;
+        display: flex;
+        padding: .5em;
+        border-radius: 50vw;
+        color: var(--secondary-color);
+        background: color-mix(in srgb, var(--neutral-color) 20%, transparent 10%);
+        border: var(--border);
+        align-self: center;
+    }
+
+    & .login__sign-in {
+        margin-top: 1em;
+        align-self: center;
+        font-size: 80%;
+    }
+
+    & .login__title {
+        align-self: center;
+        margin-bottom: .5em;
+    }
+
+    label {
+        margin-top: 1em;
+        margin-bottom: .3em;
+        letter-spacing: 1px;
+        opacity: 1;
+        font-weight: 300;
+        margin-left: 1em;
+        font-size: 80%;
+    }
+
+    input {
+
+        width: 100%;
+        border-radius: var(--borderRad-sm);
+        padding: 1em;
+        color: var(--secondary-color);
+        background: color-mix(in srgb, var(--neutral-color) 30%, transparent 10%);
+        border: var(--border);
+
+        &::placeholder {
+            opacity: 0.5;
+            color: var(--secondary-color);
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        scale: 0.95;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
