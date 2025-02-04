@@ -15,18 +15,16 @@ body {
 }
 
 :root {
-    --primary-color: #FE481A;
-    --secondary-color: #FEA71C;
+    --primary-color: #fe481a;
+    --secondary-color: #fea71c;
     --accent-color: #374459;
-    --neutral-color: #D5DBE0;
+    --neutral-color: #d5dbe0;
     --dark-color: #;
     --borderRad: 30px;
     --borderRad-sm: 15px;
     --border: 1px solid color-mix(in srgb, var(--neutral-color) 40%, transparent 90%);
     --box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
-
-
 
 a {
     color: var(--accent-color);
@@ -38,66 +36,50 @@ a {
     }
 
     &:active {
-        scale: .95;
+        scale: 0.95;
     }
-
 }
 
-
 nav {
-    backdrop-filter: blur(10px);
-    background: color-mix(in srgb, var(--accent-color) 80%, transparent 50%);
-    border: var(--border);
-    padding: 1em;
     display: flex;
     justify-content: center;
-    align-items: center;
+    backdrop-filter: blur(10px);
+    bakground: color-mix(in srgb, var(--accent-color) 80%, transparent 50%);
+    border: var(--border);
     box-shadow: var(--box-shadow);
     z-index: 10;
     text-align: center;
     align-items: center;
     display: flex;
     justify-content: flex-end;
+    backdrop-filter: blur(10px);
+    background: color-mix(in srgb, black 80%, transparent 20%);
+    color: var(--secondary-color);
+    padding: 0.5em;
 }
 
 .active.menu {
     opacity: 1;
-    pointer-events: none;
+    pointer-events: all;
 }
 
 .menu {
+    box-shadow: var(--box-shadow);
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    gap: .2em;
+    flex-direction: row;
+    gap: 0.2em;
     width: 100%;
-    transition: all 450ms ease-in-out;
-    opacity: 0;
-    pointer-events: none;
-
     a {
+        transition: all 450ms ease-in-out;
         cursor: pointer;
-        z-index: 100;
-        width: 100%;
         border-radius: var(--borderRad-sm);
-        padding: .5em 1em;
-        background: green;
-
+        padding: 0.8em 1em;
+        color: var(--neutral-color);
         &:hover {
-            background-color: red;
+            color: var(--secondary-color);
         }
-    }
-}
-
-@media (max-width: 800px) {
-    .menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        background: color-mix(in srgb, black 80%, transparent 20%);
-        height: 100vh;
     }
 }
 
@@ -108,7 +90,34 @@ nav {
     height: 30px;
     background: transparent;
     cursor: pointer;
-    display: block;
+    display: none;
+}
+@media (max-width: 1000px) {
+    nav {
+        padding: 1em;
+    }
+    .burger {
+        display: block;
+        &:hover span {
+            background: var(--secondary-color);
+        }
+    }
+    .menu {
+        width: 100%;
+        flex-direction: column;
+        position: fixed;
+        opacity: 0;
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        background: color-mix(in srgb, black 80%, transparent 20%);
+        height: 100vh;
+        a {
+            width: 100%;
+            padding: 1em;
+            font-size: 1.2em;
+        }
+    }
 }
 
 .burger input {
@@ -120,12 +129,12 @@ nav {
     position: absolute;
     height: 4px;
     width: 100%;
-    background: black;
     border-radius: 9px;
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
-    transition: .25s ease-in-out;
+    transition: 0.25s ease-in-out;
+    background: var(--neutral-color);
 }
 
 .burger span:nth-of-type(1) {
@@ -145,18 +154,18 @@ nav {
     transform: translateY(-100%);
 }
 
-.burger input:checked~span:nth-of-type(1) {
+.burger input:checked ~ span:nth-of-type(1) {
     transform: rotate(45deg);
     top: 0px;
     left: 5px;
 }
 
-.burger input:checked~span:nth-of-type(2) {
+.burger input:checked ~ span:nth-of-type(2) {
     width: 0%;
     opacity: 0;
 }
 
-.burger input:checked~span:nth-of-type(3) {
+.burger input:checked ~ span:nth-of-type(3) {
     transform: rotate(-45deg);
     top: 28px;
     left: 5px;
